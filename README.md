@@ -8,6 +8,6 @@ Welcome to the Typing Game with Javascript! This simple web-based typing game al
 
  ## Screenshot
 
-![Screenshot 1](images/ss1.png)
-![Screenshot 2](images/ss2.png)
+![Screenshot 1](image/ss1.png)
+![Screenshot 2](image/ss2.png)
 
