@@ -6,4 +6,8 @@ Welcome to the Typing Game with Javascript! This simple web-based typing game al
 - View your completion time.
 - Display high scores.
 
-  
+ ## Screenshot
+
+![Screenshot 1](images/ss1.png)
+![Screenshot 2](images/ss2.png)
+
