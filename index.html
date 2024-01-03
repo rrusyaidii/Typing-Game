@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,400;0,600;0,700;1,200&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;800&family=Outfit:wght@400;700&family=Press+Start+2P&display=swap" rel="stylesheet">
+    <title>Typing Game</title>
+</head>
+<body>
+    <div id="top">
+        <a href="#"><img src="image/logo.png" alt=""></a>
+    </div>
+    <div class="mid">
+        <h1>Typing Game with Javascript</h1>
+        <p>Practice your typing skills with a quote from One Piece. Click <b>START</b> to begin</p>
+        <p id="quote"></p>      <!-- This will display our quote -->
+        <p id="message"></p>    <!-- This will display any status messages -->
+        <div>
+            <input type="text" aria-label="current word" id="typed-value" />      <!-- The textbox for typing -->
+            <button type="button" id="start">Start</button>                       <!-- To start the game -->
+        </div>
+    </div>
+    <!-- Modal -->
+    <div id="myModal" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p id="modal-message"></p>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
