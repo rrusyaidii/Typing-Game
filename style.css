@@ -94,10 +94,13 @@ input:active {
 
 .modal-content {
     background-color: #fefefe;
+    text-align: justify;
     margin: auto;
     padding: 20px;
     border: 1px solid #888;
-    width: 80%;
+    width: 70%;
+    border-radius: 10px;
+    
 }
 
 .close {

@@ -10,10 +10,44 @@ const quotes = [
 const modal = document.getElementById("myModal");
 const span = document.getElementsByClassName("close")[0];
 const modalMessage = document.getElementById("modal-message");
+const highScoresKey = 'typingGameHighScores';
+
+// Function to get high scores from localStorage
+function getHighScores() {
+    const storedScores = localStorage.getItem(highScoresKey);
+    return storedScores ? JSON.parse(storedScores) : [];
+}
+
+// Function to save high scores to localStorage
+function saveHighScores(scores) {
+    localStorage.setItem(highScoresKey, JSON.stringify(scores));
+}
+
+// Function to update and display high scores
+function updateHighScores(time) {
+    const highScores = getHighScores();
+
+    // Add the current score to the list
+    highScores.push(time);
+
+    // Sort the scores in ascending order
+    highScores.sort((a, b) => a - b);
+
+    // Keep only the top 5 scores
+    const topScores = highScores.slice(0, 5);
+
+    // Save the updated high scores
+    saveHighScores(topScores);
+
+    // Display the high scores in the modal
+    const scoresHtml = topScores.map((score, index) => `${index + 1}. ${score / 1000} seconds`).join('<br>');
+    showModal(`<b>High Scores</b>:<br>${scoresHtml}`);
+}
+
 
 // Function to show the modal with a message
 function showModal(message) {
-    modalMessage.innerText = message;
+    modalMessage.innerHTML = message; // Use innerHTML instead of innerText or textContent
     modal.style.display = "block";
 }
 
@@ -54,10 +88,13 @@ function handleInput() {
         // End of sentence - game over
         const elapsedTime = new Date().getTime() - startTime;
         const message = `You finished in ${elapsedTime / 1000} seconds.`;
+        const roundedTime = elapsedTime.toFixed(2);
         showModal(message);
         messageElement.innerText = message;
         //Disable the textbox
         typedValueElement.disabled = true;
+        // Update and display high scores
+        updateHighScores(roundedTime);
         // Disable the input event listener
         typedValueElement.removeEventListener('input', handleInput);
     } else if (typedValue.endsWith(' ') && typedValue.trim() === currentWord) {
